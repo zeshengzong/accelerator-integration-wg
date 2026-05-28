@@ -1,0 +1,284 @@
+name: Compute Platform Admission Application
+description: Apply for your compute platform to be listed on the PyTorch Additional Platform Page
+title: "[Application] <Platform Name>"
+labels: ["application"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting a PyTorch Additional Platform Page admission application!
+
+        The PyTorch Foundation recognizes the importance of compute platforms in expanding PyTorch's reach across diverse computing environments. Out-of-tree compute platforms play a critical role in enabling PyTorch workloads on a wide range of hardware.
+
+        Please complete all required fields below. The Accelerator Integration Working Group and TAC will evaluate your submission against the [Admission Requirements](../../../docs/governance/admission_process.md). If you have questions, please reach out to the working group before submitting.
+
+  # ──────────────────────────────────────────────
+  #  Section 1: Project Overview
+  # ──────────────────────────────────────────────
+
+  - type: textarea
+    id: contact_emails
+    attributes:
+      label: Contact Emails
+      description: "Provide the email address(es) of individuals who should be contacted regarding this application. Comma-separate multiple emails."
+      placeholder: "maintainer@example.com, co-maintainer@example.com"
+    validations:
+      required: true
+
+  - type: textarea
+    id: project_overview
+    attributes:
+      label: Project Overview
+      description: "Provide a brief (100-300 words) description of the compute platform, what it does, and why it benefits PyTorch users."
+      placeholder: "Describe your compute platform project, its goals, and how it integrates with PyTorch..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: supported_hardware
+    attributes:
+      label: Supported Hardware
+      description: "List all hardware architectures supported by this compute platform."
+      placeholder: |
+        - Hardware family / chip name
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: project_repo_url
+    attributes:
+      label: Project Repository URL
+      description: "Provide the URL of the primary source code repository."
+      placeholder: "https://github.com/org/repo"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_repos
+    attributes:
+      label: Additional Repositories
+      description: "List any additional repositories related to this project, if applicable."
+      placeholder: "https://github.com/org/other-repo"
+    validations:
+      required: false
+
+  - type: textarea
+    id: website_url
+    attributes:
+      label: Website / Documentation URL
+      description: "Provide the URL of the project's website or documentation site."
+      placeholder: "https://docs.example.com"
+    validations:
+      required: true
+
+  - type: textarea
+    id: backing_entity
+    attributes:
+      label: Backing Entity
+      description: "Is there a corporate or academic entity backing this project? If so, provide the name and URL."
+      placeholder: "Organization Name — https://example.com"
+    validations:
+      required: false
+
+  # ──────────────────────────────────────────────
+  #  Section 2: Project Governance Requirements
+  # ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Project Governance Requirements
+
+        The following governance requirements must be satisfied for a compute platform to be eligible. Please provide links or evidence for each item.
+
+  - type: textarea
+    id: governance_structure
+    attributes:
+      label: Governance Structure
+      description: "Describe or link to the project's documented technical governance. Reference: [LF Minimum Viable Governance](https://github.com/github/MVG)."
+      placeholder: "Link to GOVERNANCE.md or describe your governance model..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: project_license
+    attributes:
+      label: License
+      description: "Specify the open-source license (e.g., BSD-3-Clause, Apache-2.0, MIT). If there are proprietary runtime dependencies, disclose them here."
+      placeholder: "Apache-2.0. Proprietary dependencies: ..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: repo_structure
+    attributes:
+      label: Repository Structure Checklist
+      description: "Confirm the following files exist in your repository."
+      options:
+        - label: "**LICENSE** — specifying open-source license terms and third-party dependency licenses"
+          required: true
+        - label: "**README.md** — explaining the platform's purpose, supported hardware, and getting-started instructions"
+          required: true
+        - label: "**CONTRIBUTING.md** — explaining how to contribute, including development setup and review process"
+          required: true
+        - label: "**CODEOWNERS** — defining individuals or teams responsible for code in the repository"
+          required: true
+        - label: "**CODE_OF_CONDUCT.md** — setting behavioral ground rules (should leverage the [LF Code of Conduct](https://lfprojects.org/policies/code-of-conduct/) unless an alternate is approved)"
+          required: true
+
+  # ──────────────────────────────────────────────
+  #  Section 3: Quality Criteria — Functional
+  # ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Quality Criteria — Functional Requirements
+
+  - type: textarea
+    id: working_ci
+    attributes:
+      label: Working CI
+      description: "Provide a link to your CI workflow(s) and describe how they cover all declared architectures."
+      placeholder: "Link to CI configuration and recent CI runs..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: ci_integration
+    attributes:
+      label: CI Integration (HUD Dashboard)
+      description: "Describe integration status with the HUD dashboard via the [CRCR system](https://docs.pytorch.org/docs/main/accelerator/ci.html). Provide link to dedicated HUD pages (L2 standard)."
+      placeholder: "Link to HUD dashboard page, current integration status..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_experience
+    attributes:
+      label: User Experience / Value Proposition
+      description: "Summarize the value proposition for PyTorch users. This should be clearly documented in the project README."
+      placeholder: "Describe why users would choose this platform and what benefits it provides..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: packages
+    attributes:
+      label: Packages / Installation
+      description: "Describe binary installation options (pip/Conda) and link to the installation guide."
+      placeholder: |
+        - pip: `pip install ...`
+        - Conda: `conda install ...`
+        - Installation guide: https://...
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature_list
+    attributes:
+      label: Feature List and Operator Coverage
+      description: "Provide or link to a feature list explaining the current support for PyTorch framework capabilities and the corresponding API list."
+      placeholder: "Link to feature matrix or list supported capabilities..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: release_plan
+    attributes:
+      label: Release Plan
+      description: "Describe the project's release cadence and provide evidence of consistent version releases over the past six months."
+      placeholder: |
+        Release cadence: monthly / quarterly / ...
+        Recent releases: v1.2.0 (2025-01), v1.1.0 (2024-10), ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintenance_commitment
+    attributes:
+      label: Ongoing Maintenance Commitment
+      description: "Confirm commitment to maintaining the project for at least the next 12 months and supporting the latest two PyTorch releases. State the currently supported PyTorch versions."
+      placeholder: |
+        We commit to maintaining this project for the next 12 months.
+        Currently supported PyTorch versions: 2.6, 2.5.1
+    validations:
+      required: true
+
+  # ──────────────────────────────────────────────
+  #  Section 4: Quality Criteria — Measurable
+  # ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Quality Criteria — Measurable Requirements
+
+  - type: input
+    id: core_maintainers
+    attributes:
+      label: Core Maintainers (minimum 2)
+      description: "How many core maintainers does the project have? List their GitHub handles."
+      placeholder: "3 — @user1, @user2, @user3"
+    validations:
+      required: true
+
+  - type: input
+    id: contributors
+    attributes:
+      label: Contributors Active in Last 90 Days (minimum 5)
+      description: "How many total contributors have been active in the last 90 days?"
+      placeholder: "12"
+    validations:
+      required: true
+
+  - type: input
+    id: commits
+    attributes:
+      label: Commits in Last 90 Days (minimum 30)
+      description: "How many commits have been made in the last 90 days?"
+      placeholder: "85"
+    validations:
+      required: true
+
+  # ──────────────────────────────────────────────
+  #  Section 5: PyTorch Integration
+  # ──────────────────────────────────────────────
+
+  - type: markdown
+    attributes:
+      value: |
+        ## PyTorch Integration Details
+
+  - type: textarea
+    id: integration_approach
+    attributes:
+      label: PyTorch Integration Approach
+      description: "Describe how the compute platform integrates with PyTorch (e.g., PrivateUse1 backend, torch.compile backend, custom device extension)."
+      placeholder: "Describe your integration mechanism with PyTorch..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: pytorch_versions
+    attributes:
+      label: Supported PyTorch Versions
+      description: "List the PyTorch versions you currently build and test against."
+      placeholder: "PyTorch 2.6, 2.5.1"
+    validations:
+      required: true
+
+  # ──────────────────────────────────────────────
+  #  Section 6: Additional Information
+  # ──────────────────────────────────────────────
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: "Any additional information you would like the Accelerator Integration Working Group and TAC to consider when evaluating this application."
+    validations:
+      required: false
